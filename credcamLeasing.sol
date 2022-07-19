@@ -81,8 +81,8 @@ contract credcamLease is ReentrancyGuard {
     );
   }
 
-  /* Creates the sale of a marketplace item */
-  /* Transfers ownership of the item, as well as funds between parties */
+  /* Creates the sale of an image */
+  /* Transfers ownership of the image, as well as funds between parties */
   function createMarketSale(
     address credcamnft,
     uint256 itemId
@@ -99,7 +99,7 @@ contract credcamLease is ReentrancyGuard {
     payable(owner).transfer(listingPrice);
   }
 
-  /* Returns all unsold market items */
+  /* Returns all unsold images */
   function fetchMarketItems() public view returns (MarketItem[] memory) {
     uint itemCount = _itemIds.current();
     uint unsoldItemCount = _itemIds.current() - _itemsSold.current();
@@ -141,7 +141,7 @@ contract credcamLease is ReentrancyGuard {
     return items;
   }
 
-  /* Returns only items a user has created */
+  /* Returns only the images that the user has generated */
   function fetchItemsCreated() public view returns (MarketItem[] memory) {
     uint totalItemCount = _itemIds.current();
     uint itemCount = 0;
@@ -165,3 +165,7 @@ contract credcamLease is ReentrancyGuard {
     return items;
   }
 }
+
+// ToDo List:- 
+// 1. Leasing Logic implementation
+// 2. Other items to be shown on the front-end web app. Suggest
